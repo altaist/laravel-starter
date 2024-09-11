@@ -1,9 +1,9 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import GuestLayout from '@/_breeze/Layouts/GuestLayout.vue';
+import InputError from '@/_breeze/Components/InputError.vue';
+import InputLabel from '@/_breeze/Components/InputLabel.vue';
+import PrimaryButton from '@/_breeze/Components/PrimaryButton.vue';
+import TextInput from '@/_breeze/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
