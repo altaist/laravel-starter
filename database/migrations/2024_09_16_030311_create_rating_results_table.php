@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('actions', function (Blueprint $table) {
+        Schema::create('rating_results', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('task_id')->nullable();
-            $table->json('action_data')->nullable();
-            $table->tinyInteger('status')->default(0);
-            $table->softDeletes();
+            $table->nullableMorphs('related');
+            $table->string('rating_key');
+            $table->smallInteger('rating_value');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('actions');
+        Schema::dropIfExists('rating_results');
     }
 };

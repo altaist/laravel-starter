@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('moderations', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('action_id');
-            $table->unsignedInteger('moderator_id');
-            $table->json('moderation_data');
-            $table->tinyInteger('resolution');
-            $table->tinyInteger('status');
+            $table->unsignedInteger('moderator_id')->nullable();
+            $table->json('moderation_data')->nullable();
+            $table->smallInteger('result')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
