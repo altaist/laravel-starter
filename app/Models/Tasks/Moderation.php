@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Console\View\Components\Task;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Moderation extends BaseModel
@@ -21,7 +22,7 @@ class Moderation extends BaseModel
     protected function casts(): array
     {
         return [
-            'moderation_data' => 'array',
+            'moderation_data' => 'object',
         ];
     }
 
@@ -32,7 +33,7 @@ class Moderation extends BaseModel
 
     public function task()
     {
-        return $this->hasOneThrough(User::class, Task::class, "action_id", "task_id");
+        return $this->hasOneThrough(Task::class, Action::class, "action_id", "task_id");
     }
 
     public function moderator()
@@ -40,8 +41,8 @@ class Moderation extends BaseModel
         return $this->belongsTo(User::class, 'moderator_id');
     }
 
-    public function action(): HasOne
+    public function action(): BelongsTo
     {
-        return $this->hasOne(Action::class);
+        return $this->belongsTo(Action::class);
     }
 }

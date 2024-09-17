@@ -20,10 +20,9 @@ class Action extends BaseModel
     protected function casts(): array
     {
         return [
-            'action_data' => 'array',
+            'action_data' => 'object',
         ];
     }
-
 
     public function user()
     {
