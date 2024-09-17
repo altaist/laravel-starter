@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('task_user', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('task_id');
+            $table->unsignedInteger('user_id');
+            $table->json('task_data')->nullable();
             $table->timestamps();
         });
     }

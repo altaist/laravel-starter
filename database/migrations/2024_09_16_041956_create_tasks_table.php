@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('task_type_id');
+            $table->unsignedInteger('parent_id')->nullable();
+            $table->unsignedInteger('author_id');
+            $table->nullableMorphs('taskable');
             $table->json('task_data');
             $table->timestamps();
         });
