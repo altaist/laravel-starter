@@ -10,9 +10,9 @@ import Panel from '@/components/shared/Panel.vue';
 
 export default {
     install: (app, options) => {
-        app.component("my-header", Header);
-        app.component("my-footer", Footer);
-        app.component("my-section", Section);
+        app.component("page-header", Header);
+        app.component("page-footer", Footer);
+        app.component("page-section", Section);
         app.component("section-title", SectionTitle);
         app.component("container", Container);
         app.component("page-container", PageContainer);
