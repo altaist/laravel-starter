@@ -12,10 +12,14 @@ import quasarOptions from './quasar_options';
 import '@quasar/extras/material-icons/material-icons.css'
 
 // Import Quasar css
-import 'quasar/src/css/index.sass'
+import 'quasar/src/css/index.sass';
+
+import ProjectPlugin from '@/plugins/project/plugin';
+
 
 const appName = import.meta.env.VITE_APP_NAME || 'Test app';
 window.TWA = window.Telegram ? window.Telegram.WebApp : null;
+window.debug = (...t) => console.log(...t);
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -25,6 +29,7 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue)
             .use(Quasar, quasarOptions)
+            .use(ProjectPlugin)
         app.config.globalProperties.TWA = window.TWA
         return app.mount(el);
     },
