@@ -29,10 +29,10 @@ function handleImageError() {
 
 <template>
     <page-container>
-        <my-header label="Hello!" />
+        <page-header label="Hello!" />
         <page-title>Заголовок страницы</page-title>
-        <my-section title="Hi">
+        <page-section title="Hi">
 
-        </my-section>
+        </page-section>
     </page-container>
 </template>
