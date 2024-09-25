@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use App\Models\Tasks\Action;
+use App\Models\Tasks\Moderation;
 use App\Models\User;
 use App\Services\Tasks\ActionService;
 use App\Services\Tasks\ModerationService;
@@ -11,7 +13,7 @@ use App\Services\Tasks\ModerationStatus;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ActionTest extends TestCase
+class ActionsTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -23,14 +25,15 @@ class ActionTest extends TestCase
         $user2 = User::factory()->create();
 
         $actionService = ActionService::make();
+        $taskId = 1;
 
-        $action = $actionService->createAction($user1->id, ['text'=>'Anser text']);
+        $action = $actionService->createAction($user1->id, $taskId, ['text'=>'Anser text']);
         $this->assertNotNull($action);
         $this->assertNull($action->moderation);
         $this->assertEquals($action->user->id, $user1->id);
         $this->assertNotNull($action->action_data);
 
-        $action = $actionService->createActionWithModeration($user1->id, ['text'=>'Anser text']);
+        $action = $actionService->createActionWithModeration($user1->id, $taskId, ['text'=>'Anser text']);
         $this->assertNotNull($action);
         $this->assertNotNull($action->moderation);
         $this->assertEquals($action->user->id, $user1->id);
@@ -41,7 +44,7 @@ class ActionTest extends TestCase
         $this->assertNull($action->moderation->moderation_data);
         $this->assertNull($action->moderation->moderator);
 
-        $action2 = $actionService->createActionWithModeration($user2->id, ['text'=>'Anser text']);
+        $action2 = $actionService->createActionWithModeration($user2->id, $taskId, ['text'=>'Anser text']);
         $this->assertNotNull($action2);
         $this->assertNotNull($action2->moderation);
         $this->assertEquals($action2->user->id, $user2->id);
@@ -58,9 +61,10 @@ class ActionTest extends TestCase
 
         $actionService = ActionService::make();
         $moderationService = ModerationService::make();
+        $taskId = 1;
 
-        $action1 = $actionService->createActionWithModeration($user1->id, ['text'=>'Anser text 1']);
-        $action2 = $actionService->createActionWithModeration($user2->id, ['text'=>'Anser text 2']);
+        $action1 = $actionService->createActionWithModeration($user1->id, $taskId, ['text'=>'Anser text 1']);
+        $action2 = $actionService->createActionWithModeration($user2->id, $taskId,  ['text'=>'Anser text 2']);
 
         $moderation1 = $action1->moderation;
         $this->assertNull($moderation1->moderator);
@@ -112,6 +116,22 @@ class ActionTest extends TestCase
         $this->assertNotNull($moderation1->moderation_data);
         $this->assertEquals($moderation1->moderation_data->text, 'Disapproved comment');
 
+    }
+
+    public function test_action_controller(): void
+    {
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+
+
+        $response = $this->actingAs($user2)->postJson('/task/1/action', [
+            'action_data' => ['text' => '123']
+        ]);
+        $response->assertOk();
+        $this->assertCount(1, Action::all());
+        $this->assertCount(1, Moderation::all());
+        $this->assertEquals($user2->id, Action::first()->user_id);
+        dd($response->json());
     }
 
 }

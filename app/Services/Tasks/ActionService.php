@@ -8,18 +8,19 @@ use App\Services\BaseService;
 
 class ActionService extends BaseService
 {
-    public function createAction(int $userId, ?array $actionData): ?Action
+    public function createAction(int $userId, int $taskId, ?array $actionData): ?Action
     {
         $action = new Action();
-        $action->action_data = $actionData;
         $action->user_id=$userId;
+        $action->task_id=$taskId;
+        $action->action_data = $actionData;
         $action->save();
         return $action;
     }
 
-    public function createActionWithModeration(int $userId, ?array $actionData): ?Action
+    public function createActionWithModeration(int $userId, int $taskId, ?array $actionData): ?Action
     {
-        $action = $this->createAction($userId, $actionData);
+        $action = $this->createAction($userId, $taskId, $actionData);
         $service = ModerationService::make();
         $service->createModeration($action->id);
 
