@@ -3,15 +3,21 @@
     <section class="text-center">
         {{ t('main.title') }}
     </section>
-    <page-footer>
+    <page-footer @click:code="onClickCode">
     </page-footer>
 
-    <select-lang-dialog v-model="dialogVisibility1"/>
+    <select-lang-dialog v-model="dialogLangVisibility"/>
+    <profile-dialog v-model="dialogProfileVisibility"/>
+    <wallet-dialog v-model="dialogWalletVisibility"/>
+    <enter-code-dialog v-model="dialogEnterCodeVisibility"/>
 
 </template>
 <script setup>
 import { ref } from 'vue';
-import SelectLangDialog from '@/components/langs/SelectLangDialog.vue'
+import SelectLangDialog from '@/components/dialogs/SelectLangDialog.vue'
+import ProfileDialog from '@/components/dialogs/ProfileDialog.vue'
+import WalletDialog from '@/components/dialogs/WalletDialog.vue'
+import EnterCodeDialog from '@/components/dialogs/EnterCodeDialog.vue'
 
 const props = defineProps({
     title: {
@@ -21,19 +27,25 @@ const props = defineProps({
 });
 const emit = defineEmits(['click']);
 
-const dialogVisibility1 = ref(false);
+const dialogProfileVisibility = ref(false);
+const dialogLangVisibility = ref(false);
+const dialogWalletVisibility = ref(false);
+const dialogEnterCodeVisibility = ref(false);
 
 const onClickProfile = () => {
-    redirect(route('main'));
+    dialogProfileVisibility.value = true;
 }
 
 const onClickLang = () => {
-    dialogVisibility1.value = true;
-
+    dialogLangVisibility.value = true;
 }
 
 const onClickWallet = () => {
+    dialogWalletVisibility.value = true;
+}
 
+const onClickCode = () => {
+    dialogEnterCodeVisibility.value = true;
 }
 
 </script>

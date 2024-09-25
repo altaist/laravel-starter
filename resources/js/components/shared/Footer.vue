@@ -2,7 +2,7 @@
     <div style="position: fixed; bottom: 0; width: 100%;">
         <div class="q-pa-md">
             <div class="row">
-                <div class="col"><btn :label="t('footer.btn_code')"/></div>
+                <div class="col"><btn :label="t('footer.btn_code')" @click="emit('click:code')"/></div>
                 <div class="col text-center"><btn :label="t('footer.btn_social')"/></div>
                 <div class="col text-right"><btn :label="t('footer.btn_share')"/></div>
             </div>
@@ -25,6 +25,6 @@ const props = defineProps({
 
 });
 
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click:code', 'click:social', 'click:share']);
 
 </script>
