@@ -4,7 +4,7 @@ export const saveToLocalStorage = (key, data) => {
 
 export const loadFromLocalStorage = (key, def) => {
     try {
-        const storedValue = JSON.parse(localStorage.getItem(key));
+        const storedValue = JSON.parse(localStorage.getItem(key)) || def;
         return storedValue;
     } catch (error) {
         return def;

@@ -14,12 +14,13 @@ import '@quasar/extras/material-icons/material-icons.css'
 // Import Quasar css
 import 'quasar/src/css/index.sass';
 
-import ProjectPlugin from '@/plugins/project/plugin';
+import {ProjectPlugin} from '@/plugins/project/plugin';
 
 
 const appName = import.meta.env.VITE_APP_NAME || 'Test app';
 window.TWA = window.Telegram ? window.Telegram.WebApp : null;
 window.debug = (...t) => console.log(...t);
+window.redirect =  (path) => window.location = path;
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -37,12 +38,3 @@ createInertiaApp({
         color: '#4B5563',
     },
 });
-
-const currentLang = {
-    'comming_soon': 'Comming soon'
-}
-
-
-window.t = (key) => {
-    return currentLang[key] || key;
-}
