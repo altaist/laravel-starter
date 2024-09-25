@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import Main from '@/components/Main.vue'
 
 defineProps({
     canLogin: {
@@ -29,10 +30,6 @@ function handleImageError() {
 
 <template>
     <page-container>
-        <page-header label="Hello!" />
-        <page-title>Заголовок страницы</page-title>
-        <page-section title="Hi">
-
-        </page-section>
+        <Main/>
     </page-container>
 </template>

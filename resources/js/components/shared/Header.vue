@@ -1,5 +1,11 @@
 <template>
-    {{ label }}
+    <div class="q-pa-md">
+        <div class="row">
+            <div class="col"><btn :label="t('header.btn_profile')" @click="emit('click:profile')"/></div>
+            <div class="col text-center"><btn :label="t('header.btn_langs')" @click="emit('click:lang')"/></div>
+            <div class="col text-right"><btn :label="t('header.btn_wallet')" @click="emit('click:wallet')"/></div>
+        </div>
+    </div>
 </template>
 <script setup>
 const props = defineProps({
@@ -17,6 +23,7 @@ const props = defineProps({
 
 });
 
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click:profile', 'click:lang', 'click:wallet']);
+
 
 </script>
