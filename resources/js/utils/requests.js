@@ -17,7 +17,8 @@ export const request = async (url, data, method = 'post', onError = errorHandler
         return resultData;
     } catch (error) {
         loading.value = false;
-        return onError(error);
+        onError(error);
+        return null;
     } finally {
         loading.value = false;
     }
@@ -29,7 +30,7 @@ export const requestGet = (url, data = {}) => request(url, data, 'get');
 
 
 export const errorHandler = (error) => {
-    console.log(error);
+    console.log('Error handler', error);
     if (error.response && error.response.data) {
         return error.response.data;
     }

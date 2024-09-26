@@ -4,9 +4,8 @@ import { requestGet, requestPost, loading } from '@/utils/requests';
 import { getStoredUser, loadFromLocalStorage, saveToLocalStorage } from '@/utils/localstorage';
 
 export const user = ref(null);
-export const loading;
 
-export const authAndAutoReg = async (autoreg = false) => {
+export const authAndAutoReg = async () => {
     return authLocalSaved(true);
 }
 
@@ -33,10 +32,10 @@ export const authLocalSaved = async (autoreg = false) => {
     }
 
     if(autoreg) {
-        twaUser = getTwaUser() || {};
-        userId = twaUser.tgId || null;
-        userName = twaUser.name || null;
-        const newUser = await autoRegister(token, userId, userName) || {};
+        const twaUser = getTwaUser() || {};
+        const tgId = twaUser.tgId || null;
+        const userName = twaUser.name || 'name';
+        const newUser = await autoRegister(token, tgId, userName) || {};
         debug('Registered user: ', newUser);
 
         return setUser(newUser);
@@ -85,7 +84,8 @@ const createUserToken = () => {
 
 
 const getTwaUser = () => {
-    const TWA = getCurrentInstance().appContext.config.globalProperties.TWA;
+    //const TWA = getCurrentInstance().appContext.config.globalProperties.TWA;
+    const TWA = window.TWA;
     if (!TWA || !TWA.initDataUnsafe || !TWA.initDataUnsafe.user) return null;
     const user = TWA.initDataUnsafe.user;
     return {
