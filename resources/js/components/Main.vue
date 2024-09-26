@@ -14,6 +14,8 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+import { authAndAutoReg } from '@/composables/auth';
+
 import SelectLangDialog from '@/components/dialogs/SelectLangDialog.vue'
 import ProfileDialog from '@/components/dialogs/ProfileDialog.vue'
 import WalletDialog from '@/components/dialogs/WalletDialog.vue'
@@ -48,4 +50,5 @@ const onClickCode = () => {
     dialogEnterCodeVisibility.value = true;
 }
 
+authAndAutoReg()
 </script>
