@@ -31,6 +31,8 @@ class UserService
         $user->email = Str::lower(data_get($validated, 'email', data_get($data, 'auth_token') . "@fake.mail"));
         $user->auth_token = data_get($validated, 'auth_token');
         $user->password = Hash::make(data_get($validated, 'password', Str::random(9)));
+        $user->ref_key = Str::random(9);
+
         $user->save();
         // dd($user, $validated);
 
