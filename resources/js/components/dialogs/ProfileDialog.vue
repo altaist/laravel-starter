@@ -6,11 +6,8 @@
             </q-card-section>
 
             <q-card-section class="q-pt-none">
-                <q-list bordered separator>
-                    <q-item clickable v-ripple v-for="lang in langs" >
-                        <q-item-section @click="onItemClick(lang)">{{ lang.label }}</q-item-section>
-                    </q-item>
-                </q-list>
+                <btn label="Выйти" @click="onLogout"></btn>
+
             </q-card-section>
 
         </q-card>
@@ -18,6 +15,7 @@
 </template>
 <script setup>
 import { useLangs } from '@/utils/locales';
+import { requestPost } from '@/utils/requests';
 
 const visible = defineModel();
 const props = defineProps({
@@ -30,8 +28,8 @@ const emit = defineEmits(['click']);
 
 const { langs, setCurrentLang } = useLangs();
 
-const onItemClick = (item) => {
-    visible.value = false;
+const onLogout = (item) => {
+    requestPost('logout');
 }
 
 </script>

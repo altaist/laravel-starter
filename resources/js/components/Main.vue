@@ -2,6 +2,9 @@
     <page-header @click:profile="onClickProfile" @click:lang="onClickLang" @click:wallet="onClickWallet"/>
     <section class="text-center">
         {{ t('main.title') }}
+        <div>
+            {{ user }}
+        </div>
     </section>
     <page-footer @click:code="onClickCode">
     </page-footer>
@@ -14,7 +17,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { authAndAutoReg } from '@/composables/auth';
+import { authAndAutoReg, user } from '@/composables/auth';
 
 import SelectLangDialog from '@/components/dialogs/SelectLangDialog.vue'
 import ProfileDialog from '@/components/dialogs/ProfileDialog.vue'

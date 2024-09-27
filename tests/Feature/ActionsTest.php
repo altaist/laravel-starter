@@ -131,7 +131,6 @@ class ActionsTest extends TestCase
         $this->assertCount(1, Action::all());
         $this->assertCount(1, Moderation::all());
         $this->assertEquals($user2->id, Action::first()->user_id);
-        dd($response->json());
     }
 
 }
