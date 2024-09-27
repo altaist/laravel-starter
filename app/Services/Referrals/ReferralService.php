@@ -16,7 +16,7 @@ class ReferralService extends BaseService
     public function attachReferral(User $user, string $refKey)
     {
         $parentUser = $this->getUserByRefKey($refKey);
-        if(!$parentUser) {
+        if(!$parentUser || $parentUser->id == $user->id) {
             return null;
         }
 
