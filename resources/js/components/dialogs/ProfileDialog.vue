@@ -16,6 +16,7 @@
 <script setup>
 import { useLangs } from '@/utils/locales';
 import { requestPost } from '@/utils/requests';
+import { logout, user } from '@/composables/auth';
 
 const visible = defineModel();
 const props = defineProps({
@@ -29,7 +30,8 @@ const emit = defineEmits(['click']);
 const { langs, setCurrentLang } = useLangs();
 
 const onLogout = (item) => {
-    requestPost('logout');
+    logout(true);
+    visible.value = false;
 }
 
 </script>

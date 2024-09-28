@@ -44,8 +44,8 @@ export const authLocalSaved = async (autoreg = false) => {
     return null;
 }
 
-export const logout = () => {
-    logoutLocal();
+export const logout = (removeToken = false) => {
+    logoutLocal(removeToken);
     return requestPost(route('logout'));
 }
 
@@ -68,6 +68,7 @@ const autoRegister = async (auth_token, tg_id, name) => {
 }
 
 const logoutLocal = (removeToken = false) => {
+    user.value = null;
     localStorage.removeItem('user');
     if(removeToken) {
         localStorage.removeItem('auth_token');

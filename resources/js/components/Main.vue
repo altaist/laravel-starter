@@ -53,5 +53,5 @@ const onClickCode = () => {
     dialogEnterCodeVisibility.value = true;
 }
 
-authAndAutoReg()
+authAndAutoReg();
 </script>
