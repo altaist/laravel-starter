@@ -1,9 +1,12 @@
 <template>
-    <div class="q-ma-md">
-        <section-title @click="emit('click:title')">{{ title }}</section-title>
-    </div>
-    <div class="q-ma-sm">
-        <slot/>
+    <div class="q-my-xl">
+        <div class="q-ma-md">
+            <section-title @click="emit('click:title')">{{ title }}</section-title>
+        </div>
+        <div class="q-ma-md">
+            <slot />
+        </div>
+
     </div>
 </template>
 <script setup>

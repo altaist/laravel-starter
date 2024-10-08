@@ -1,16 +1,12 @@
 <template>
-    <q-btn :label="label" @click="emit('click')" flat :color="color"/>
+    <h1>Profile</h1>
 </template>
 <script setup>
 
 const props = defineProps({
-    label: {
+    title: {
         type: String,
         default: ''
-    },
-    color: {
-        type: String,
-        default: 'deep-orange'
     },
 });
 const emit = defineEmits(['click']);
