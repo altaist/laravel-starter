@@ -6,6 +6,7 @@ import Container from '@/components/shared/Container.vue';
 import PageContainer from '@/components/shared/PageContainer.vue';
 import PageTitle from '@/components/shared/PageTitle.vue';
 import Btn from '@/components/shared/Btn.vue';
+import Block from '@/components/shared/Block.vue';
 import Panel from '@/components/shared/Panel.vue';
 
 import { useLangs } from '@/utils/locales'
@@ -20,6 +21,7 @@ export const ProjectPlugin = {
         app.component("page-container", PageContainer);
         app.component("page-title", PageTitle);
         app.component("btn", Btn);
+        app.component("block", Block);
         app.component("panel", Panel);
 
         const langs = useLangs();
