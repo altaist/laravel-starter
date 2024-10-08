@@ -9,6 +9,10 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/shop', function () {
+    return Inertia::render('Shop/Main');
+})->name('shop.main');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
