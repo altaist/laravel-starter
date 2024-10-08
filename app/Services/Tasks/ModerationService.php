@@ -2,9 +2,12 @@
 
 namespace App\Services\Tasks;
 
+use App\Events\Tasks\ModerationCreated;
+use App\Events\Tasks\ModeratorAttached;
 use App\Models\Tasks\Moderation;
 use App\Models\User;
 use App\Services\BaseService;
+use Illuminate\Support\Facades\Event;
 
 class ModerationService extends BaseService
 {
@@ -14,15 +17,20 @@ class ModerationService extends BaseService
         $moderation->status = ModerationStatus::$NEW;
         $moderation->action_id = $actionId;
         $moderation->save();
+        Event::dispatch(new ModerationCreated($moderation));
+
         return $moderation;
     }
 
     public function attachModerator (int $moderationId, int $moderatorId): Moderation
     {
         $moderation = Moderation::findOrFail($moderationId);
+        $moderatorUser = User::findOrFail($moderatorId);
         $moderation->moderator_id = $moderatorId;
         $moderation->status = ModerationStatus::$MODERATING;
         $moderation->save();
+        Event::dispatch(new ModeratorAttached($moderation, $moderatorUser));
+
         return $moderation;
     }
 
