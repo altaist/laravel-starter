@@ -1,7 +1,8 @@
 <template>
     <div>
         <q-card class="my-card" flat bordered>
-            <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
+            <!--q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" /-->
+            <q-img :src="'/img/' + (item.img || 'item1.jpg')" />
 
             <q-card-section>
                 <CartButton :item="item" mode="fab"/>
