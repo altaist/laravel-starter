@@ -1,5 +1,5 @@
 <template>
-    <q-dialog v-model="visibility">
+    <q-dialog v-model="visibility" full-width >
       <q-card>
         <q-card-section>
           <div class="text-h6">{{ title }}</div>
