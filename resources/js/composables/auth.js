@@ -84,7 +84,7 @@ const createUserToken = () => {
 }
 
 
-const getTwaUser = () => {
+export const getTwaUser = () => {
     //const TWA = getCurrentInstance().appContext.config.globalProperties.TWA;
     const TWA = window.TWA;
     if (!TWA || !TWA.initDataUnsafe || !TWA.initDataUnsafe.user) return null;

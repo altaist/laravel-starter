@@ -10,6 +10,10 @@ use Inertia\Inertia;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/shop', function () {
+    return Inertia::render('Shop/Start');
+})->name('shop.start');
+
+Route::get('/shop/main', function () {
     return Inertia::render('Shop/Main');
 })->name('shop.main');
 

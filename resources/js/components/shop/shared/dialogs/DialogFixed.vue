@@ -7,7 +7,7 @@
 
         <q-separator />
 
-        <q-card-section style="height: 80vh" class="scroll">
+        <q-card-section style="min-height: 70vh; max-height:75vh" class="scroll">
             <slot/>
         </q-card-section>
 
