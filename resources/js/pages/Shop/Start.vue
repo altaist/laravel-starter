@@ -2,7 +2,6 @@
     <Head title="Rent Agent" />
     <page-container>
         <div class="text-left q-pa-md">
-            {{ TWA }}
             <div class="q-my-xl text-h2 text-deep-orange">
                 Сервис Аренды Одежды
             </div>

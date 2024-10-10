@@ -1,7 +1,7 @@
 <template>
     <div v-if="mode == 'total'">
         <q-btn @click="emit('click:cart')" dense round flat color="deep-orange" icon="fa-solid fa-gifts">
-            <q-badge v-if="cartLength" color="blue" floating>{{ cartLength }}</q-badge>
+            <q-badge v-if="cartLength" color="accent" floating>{{ cartLength }}</q-badge>
         </q-btn>
     </div>
     <div v-else-if="mode == 'list'">
@@ -34,7 +34,7 @@ const cartLength = computed(
 )
 
 const btnColorComputed = computed(() => {
-    return cart.has(props.item) ? 'deep-orange' : 'primary';
+    return cart.has(props.item) ? 'deep-orange' : 'secondary';
 })
 
 const onToggle = () => {

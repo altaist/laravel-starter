@@ -1,7 +1,7 @@
 <template>
     <div v-if="mode=='total'">
         <q-btn @click="emit('click:favorites')" dense round flat color="deep-orange" icon="fa-solid fa-bookmark" >
-        <q-badge v-if="favLength" color="blue" floating>{{ favLength }}</q-badge>
+        <q-badge v-if="favLength" color="accent" floating>{{ favLength }}</q-badge>
     </q-btn>
     </div>
     <div v-else-if="mode=='list'">
@@ -37,7 +37,7 @@ const favLength = computed(
 )
 
 const btnColorComputed = computed(() => {
-    return favorites.has(props.item) ? 'deep-orange' : 'primary';
+    return favorites.has(props.item) ? 'deep-orange' : 'secondary';
 })
 
 const onToggle = () => {

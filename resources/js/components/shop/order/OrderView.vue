@@ -10,7 +10,7 @@
                 caption="Период, на который будут арендованы товары" header-class="text-secondary text-h6">
                 <q-card>
                     <q-card-section>
-                        <q-date v-model="rentPeriod" range full-width />
+                        <q-date v-model="rentPeriod" range full-width color="secondary"/>
                     </q-card-section>
                 </q-card>
             </q-expansion-item>

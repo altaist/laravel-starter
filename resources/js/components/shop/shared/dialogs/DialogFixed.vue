@@ -2,7 +2,7 @@
     <q-dialog v-model="visibility" full-width full-height>
       <q-card >
         <q-card-section>
-          <div class="text-h5 text-deep-orange">{{ title }}</div>
+          <div class="text-h4 text-accent">{{ title }}</div>
         </q-card-section>
 
         <q-separator />
@@ -14,7 +14,7 @@
         <q-separator />
 
         <q-card-actions align="right">
-          <q-btn flat label="Закрыть" color="deep-orange" v-close-popup />
+          <q-btn flat size="lg" label="Закрыть" color="red" v-close-popup />
         </q-card-actions>
       </q-card>
     </q-dialog>

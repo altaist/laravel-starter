@@ -99,12 +99,10 @@ const onClickOrder = (order) => {
 
 authAndAutoReg()
     .then(() => {
-        useProject().loadSettings();
-
-        initFakeShop();
     });
 
-
+    useProject().loadSettings();
+    initFakeShop();
 
 
 </script>
