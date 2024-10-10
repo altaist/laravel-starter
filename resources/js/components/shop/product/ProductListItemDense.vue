@@ -1,9 +1,8 @@
 <template>
-        <q-item clickable v-ripple>
-            <q-item-section top avatar>
-                <q-avatar rounded>
+        <q-item clickable v-ripple @click="emit('click:product', item)" style="min-height: 100px;">
+            <q-item-section avatar>
+                <q-avatar rounded size="xl">
                     <img :src="'/img/' + (item.img || 'item1.jpg')">
-
                 </q-avatar>
             </q-item-section>
 
@@ -12,7 +11,7 @@
                 <q-item-label caption> {{ item.description }}</q-item-label>
             </q-item-section>
 
-            <q-item-section side top>
+            <q-item-section side >
                 <q-item-label caption>{{ item.price }}</q-item-label>
             </q-item-section>
         </q-item>
@@ -29,7 +28,9 @@ const props = defineProps({
         default: null
     }
 });
-const emit = defineEmits(['click:favorites:add', 'click:favorites:remove', 'click:cart:add', 'click:cart:remove']);
+const emit = defineEmits(['click:product', 'click:favorites:add', 'click:favorites:remove', 'click:cart:add', 'click:cart:remove']);
 
-
+const click = (product) => {
+    console.log(product);
+}
 </script>

@@ -1,15 +1,15 @@
 <template>
     <div>
         <div v-if="viewMode == 'dense'">
-            <q-list bordered separator padding>
+            <q-list bordered separator padding clickable>
                 <template v-for="product in items">
-                    <ProductListItemDense :item="product" />
+                    <ProductListItemDense :item="product" @click:product="emit('click:product', $event)"/>
                 </template>
             </q-list>
         </div>
         <div v-else>
             <div v-for="product in items" class="q-my-md">
-                <ProductListItem :item="product"></ProductListItem>
+                <ProductListItem :item="product" @click:product="emit('click:product', $event)"></ProductListItem>
             </div>
         </div>
 
@@ -35,7 +35,7 @@ const props = defineProps({
         default: 'list'
     }
 });
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click:product']);
 
 
 const favorites = useFavorites();

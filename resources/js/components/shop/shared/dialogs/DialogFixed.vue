@@ -1,20 +1,20 @@
 <template>
-    <q-dialog v-model="visibility" full-width >
-      <q-card>
+    <q-dialog v-model="visibility" full-width full-height>
+      <q-card >
         <q-card-section>
-          <div class="text-h5">{{ title }}</div>
+          <div class="text-h5 text-deep-orange">{{ title }}</div>
         </q-card-section>
 
         <q-separator />
 
-        <q-card-section style="max-height: 50vh" class="scroll">
+        <q-card-section style="height: 80vh" class="scroll">
             <slot/>
         </q-card-section>
 
         <q-separator />
 
         <q-card-actions align="right">
-          <q-btn flat label="Закрыть" color="primary" v-close-popup />
+          <q-btn flat label="Закрыть" color="deep-orange" v-close-popup />
         </q-card-actions>
       </q-card>
     </q-dialog>

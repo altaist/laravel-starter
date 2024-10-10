@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="text-center">
         <q-card class="my-card" flat bordered>
             <!--q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" /-->
             <q-img :src="'/img/' + (item.img || 'item1.jpg')" />
 
             <q-card-section>
-                <CartButton :item="item" mode="fab"/>
-                <FavoritesButton :item="item" mode="fab"/>
+                <CartButton :item="item" mode="fab" />
+                <FavoritesButton :item="item" mode="fab" />
 
                 <div class="row no-wrap items-center">
                     <div class="col text-h6 ellipsis">
@@ -23,7 +23,7 @@
 
             <q-card-section class="q-pt-none">
                 <div class="text-subtitle1">
-                    Арендв: {{ item.price }} / сутки
+                    Аренда: {{ item.price }} / сутки
                 </div>
                 <div class="text-caption text-grey">
                     {{ item.description }}
@@ -31,10 +31,22 @@
             </q-card-section>
 
             <q-separator />
+                <q-card-section v-if="showDetails">
+                    <block color="bg-deep-orange">
+                        Подробное описание, дополнительные поля
+                    </block>
 
-            <q-card-actions align='center'>
+                    <block color="bg-accent">
+                        Подробное описание, дополнительные поля
+                    </block>
 
-                <q-btn flat color="primary">
+                    <block color="bg-secondary">
+                        Подробное описание, дополнительные поля
+                    </block>
+                </q-card-section>
+
+            <q-card-actions align='center' v-if="showMore">
+                <q-btn flat color="primary" @click="emit('click:product', item)">
                     Подробнее
                 </q-btn>
             </q-card-actions>
@@ -49,10 +61,18 @@ import CartButton from '@/components/shop/cart/CartButton.vue';
 const props = defineProps({
     item: {
         type: Object,
-        default: ''
+        default: null
+    },
+    showMore: {
+        type: Boolean,
+        default: true
+    },
+    showDetails: {
+        type: Boolean,
+        default: false
     }
 });
-const emit = defineEmits(['click:favorites:add', 'click:favorites:remove', 'click:cart:add', 'click:cart:remove']);
+const emit = defineEmits(['click:product', 'click:favorites:add', 'click:favorites:remove', 'click:cart:add', 'click:cart:remove']);
 
 
 </script>

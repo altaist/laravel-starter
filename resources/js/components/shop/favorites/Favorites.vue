@@ -1,13 +1,12 @@
 <template>
     <div v-if="favorites.getFavorites().length > 0">
         <div>
-            <ProductList :items="favorites.getFavorites()" view-mode="dense" />
+            <ProductList :items="favorites.getFavorites()" view-mode="dense" @click:product="emit('click:product', $event)" />
         </div>
-        <div class="q-my-lg">
+        <div class="q-my-lg text-right">
             <div>
-                <q-btn label="Очистить все" size="md" @click="clear()" />
+                <q-btn icon="fa-solid fa-trash" size="md" color="red" @click="clear" />
             </div>
-
         </div>
 
     </div>
@@ -27,7 +26,7 @@ const props = defineProps({
         default: ''
     },
 });
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click:product', 'click:order']);
 
 const favorites = useFavorites();
 

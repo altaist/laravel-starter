@@ -1,6 +1,6 @@
 <template>
-    <div class="q-my-xl" :style="'min-height:' + height">
-        <div class="q-ma-md" v-if="title">
+    <div class="q-mb-xl" :style="'min-height:' + height">
+        <div class="q-my-md" v-if="title">
             <section-title @click="emit('click:title')">{{ title }}</section-title>
             <q-separator class="q-mt-sm"/>
         </div>

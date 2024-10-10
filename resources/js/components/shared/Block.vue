@@ -1,5 +1,5 @@
 <template>
-    <div :class="['text-center text-h6 q-my-lg q-pa-md', 'rounded', color, text]" :style="'min-height:' + height">
+    <div :class="['text-center text-h6 q-my-lg q-pa-md q-py-lg vertical-middle', 'rounded', color, text]" :style="'min-height:' + height">
         <slot/>
     </div>
 </template>
@@ -12,15 +12,15 @@ const props = defineProps({
     },
     color: {
         type: String,
-        default: ''
+        default: 'bg-deep-orange-3'
     },
     text: {
         type: String,
-        default: ''
+        default: 'text-white'
     },
     height: {
         type: String,
-        default: ''
+        default: '100px'
     }
 });
 const emit = defineEmits(['click']);

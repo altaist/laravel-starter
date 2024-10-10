@@ -4,7 +4,7 @@
             ФИЛЬТРЫ И ПРОМО
         </block>
         <div class="q-my-md" v-if="shopData">
-            <ProductList :items="shopData.catalogs.main"/>
+            <ProductList :items="shopData.catalogs.main" @click:product="emit('click:product', $event)"/>
         </div>
 
 
@@ -26,7 +26,7 @@ const props = defineProps({
         default: ''
     }
 });
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click:product', 'click:order']);
 
 const shop = useShop();
 const shopData = shop.shopData;
