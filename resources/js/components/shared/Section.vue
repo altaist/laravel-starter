@@ -2,7 +2,6 @@
     <div class="q-mb-xl" :style="'min-height:' + height">
         <div class="q-my-md" v-if="title">
             <section-title @click="emit('click:title')">{{ title }}</section-title>
-            <q-separator class="q-mt-sm"/>
         </div>
         <div class="q-my-md">
             <slot />
