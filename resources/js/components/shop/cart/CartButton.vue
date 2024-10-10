@@ -1,6 +1,6 @@
 <template>
     <div v-if="mode == 'total'">
-        <q-btn @click="emit('click:cart')" dense round flat color="deep-orange" icon="fa-solid fa-cart-shopping">
+        <q-btn @click="emit('click:cart')" dense round flat color="deep-orange" icon="fa-solid fa-gifts">
             <q-badge v-if="cartLength" color="blue" floating>{{ cartLength }}</q-badge>
         </q-btn>
     </div>

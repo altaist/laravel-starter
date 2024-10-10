@@ -6,7 +6,7 @@
     />
     <section class="text-center q-mt-xl q-pt-xl">
         <h4>
-            КАТАЛОГ
+            СЕРВИС АРЕНДЫ ОДЕЖДЫ
         </h4>
     </section>
     <section class="text-center">
@@ -21,7 +21,7 @@
         <Favorites/>
     </DialogFixed>
 
-    <DialogFixed title="Корзина" v-model="dialogCartVisibility">
+    <DialogFixed title="Заказы" v-model="dialogCartVisibility">
         <Cart/>
     </DialogFixed>
 
