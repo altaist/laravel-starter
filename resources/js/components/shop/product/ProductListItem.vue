@@ -8,7 +8,7 @@
                 <CartButton :item="item" mode="fab" />
                 <FavoritesButton :item="item" mode="fab" />
 
-                <div class="row no-wrap items-center">
+                <div class="row no-wrap items-center q-mt-md">
                     <div class="col text-h6 ellipsis">
                         {{ item.title }}
                     </div>
@@ -46,7 +46,7 @@
                 </q-card-section>
 
             <q-card-actions align='center' v-if="showMore">
-                <q-btn flat color="primary" @click="emit('click:product', item)">
+                <q-btn flat color="secondary" @click="emit('click:product', item)">
                     Подробнее
                 </q-btn>
             </q-card-actions>

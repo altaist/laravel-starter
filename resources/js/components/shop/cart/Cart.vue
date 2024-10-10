@@ -6,7 +6,7 @@
             </div>
             <div class="q-my-lg text-right">
                 <div>
-                    <q-btn icon="fa-solid fa-trash" size="md" color="red" @click="clear" />
+                    <q-btn icon="fa-solid fa-trash" size="md" color="accent" @click="clear" />
                 </div>
             </div>
 
