@@ -2,29 +2,30 @@ import { ref } from 'vue';
 import { loadFromLocalStorage, saveToLocalStorage } from '@/utils/localstorage';
 
 
-const defaultSettings = {
+export const settings = ref({
     user: null,
     theme: {
 
-    }
-}
+    },
+    isStyler: false,
+    isSeller: false
+})
 
 
 export const useProject = (projectKey = 'default') => {
-    const settings = ref(defaultSettings);
-
-    const loadSettings = () => {
+    
+    const load = () => {
         settings.value = loadFromLocalStorage(projectKey);
     }
 
-    const updateSettings = () => {
+    const update = () => {
         saveToLocalStorage(projectKey, settings);
     }
 
     return {
         settings,
-        loadSettings,
-        updateSettings
+        load,
+        update
     }
 
 

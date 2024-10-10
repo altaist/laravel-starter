@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="q-mb-lg">
+        <div class="q-my-lg">
             <q-list bordered class="rounded-borders">
 
                 <q-expansion-item>
@@ -27,16 +27,16 @@
         <page-section>
             <div class="row q-col-gutter-md">
                 <div class="col-6 text-left">
-                    <q-btn icon="fa-solid fa-gifts" label="Заказы" stack rounded class="q-pa-md full-width" size="lg" color="secondary" />
+                    <q-btn icon="fa-solid fa-gifts" label="Заказы" stack rounded class="q-pa-md full-width" size="md" color="secondary" />
                 </div>
                 <div class="col-6 text-right">
-                    <q-btn icon="fa-solid fa-handshake" label="Клиенты" stack rounded class="q-pa-md full-width" size="lg" color="secondary" />
+                    <q-btn icon="fa-solid fa-handshake" label="Клиенты" stack rounded class="q-pa-md full-width" size="md" color="secondary" />
                 </div>
                 <div class="col-6 text-left">
-                    <q-btn icon="fa-solid fa-credit-card" label="Платежи" stack rounded class="q-pa-md full-width" size="lg" color="secondary" />
+                    <q-btn icon="fa-solid fa-credit-card" label="Платежи" stack rounded class="q-pa-md full-width" size="md" color="secondary" />
                 </div>
                 <div class="col-6 text-right">
-                    <q-btn icon="fa-solid fa-receipt" label="Архив" stack rounded class="q-pa-md full-width" size="lg" color="secondary" />
+                    <q-btn icon="fa-solid fa-receipt" label="Архив" stack rounded class="q-pa-md full-width" size="md" color="secondary" />
                 </div>
             </div>
         </page-section>
@@ -84,6 +84,8 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+import { settings } from '@/composables/project';
+
 const props = defineProps({
     title: {
         type: String,

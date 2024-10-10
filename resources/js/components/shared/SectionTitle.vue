@@ -1,5 +1,5 @@
 <template>
-    <div class="text-h5 q-pa-md bg-secondary text-white rounded-1" @click="emit('click')">
+    <div class="text-h5 q-pa-sm bg-secondary text-white rounded-1" @click="emit('click')">
         <slot/>
     </div>
 </template>

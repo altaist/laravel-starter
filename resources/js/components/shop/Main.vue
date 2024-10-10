@@ -101,7 +101,7 @@ authAndAutoReg()
     .then(() => {
     });
 
-    useProject().loadSettings();
+    useProject().load();
     initFakeShop();
 
 
