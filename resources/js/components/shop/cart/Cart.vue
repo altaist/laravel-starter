@@ -5,7 +5,7 @@
         </div>
         <div class="q-my-lg">
             <div>
-                <q-btn label="Очистить все" @click="clear" />
+                <q-btn label="Очистить все" size="md" @click="clear" />
             </div>
 
         </div>

@@ -11,7 +11,7 @@
                             </q-avatar>
                         </q-item-section>
 
-                        <q-item-section>
+                        <q-item-section class="text-h6">
                             Иванов Петр
                         </q-item-section>
                     </template>
@@ -26,14 +26,17 @@
         </div>
         <page-section>
             <div class="row q-col-gutter-md">
-                <div class="col-4 text-center">
-                    <q-btn icon="fa-solid fa-gifts" label="Заказы" stack rounded class="q-pa-md" color="secondary" />
+                <div class="col-6 text-left">
+                    <q-btn icon="fa-solid fa-gifts" label="Заказы" stack rounded class="q-pa-md full-width" size="lg" color="deep-orange-5" />
                 </div>
-                <div class="col-4 text-center">
-                    <q-btn icon="fa-solid fa-bookmark" label="Клиенты" stack rounded class="q-pa-md" color="secondary" />
+                <div class="col-6 text-right">
+                    <q-btn icon="fa-solid fa-handshake" label="Клиенты" stack rounded class="q-pa-md full-width" size="lg" color="deep-orange-5" />
                 </div>
-                <div class="col-4 text-center">
-                    <q-btn icon="fa-solid fa-credit-card" label="Платежи" stack rounded class="q-pa-md" color="secondary" />
+                <div class="col-6 text-left">
+                    <q-btn icon="fa-solid fa-credit-card" label="Платежи" stack rounded class="q-pa-md full-width" size="lg" color="deep-orange-5" />
+                </div>
+                <div class="col-6 text-right">
+                    <q-btn icon="fa-solid fa-receipt" label="Архив" stack rounded class="q-pa-md full-width" size="lg" color="deep-orange-5" />
                 </div>
             </div>
         </page-section>

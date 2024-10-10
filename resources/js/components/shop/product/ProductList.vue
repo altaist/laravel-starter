@@ -1,10 +1,10 @@
 <template>
     <div>
         <div v-if="viewMode == 'dense'">
-            <q-list bordered padding>
-                <div v-for="product in items">
+            <q-list bordered separator padding>
+                <template v-for="product in items">
                     <ProductListItemDense :item="product" />
-                </div>
+                </template>
             </q-list>
         </div>
         <div v-else>

@@ -23,7 +23,7 @@
 
             <q-card-section class="q-pt-none">
                 <div class="text-subtitle1">
-                    Стоимость: {{ item.price }}
+                    Арендв: {{ item.price }} / сутки
                 </div>
                 <div class="text-caption text-grey">
                     {{ item.description }}

@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <q-item>
+        <q-item clickable v-ripple>
             <q-item-section top avatar>
                 <q-avatar rounded>
-                    <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+                    <img :src="'/img/' + (item.img || 'item1.jpg')">
+
                 </q-avatar>
             </q-item-section>
 
@@ -16,7 +16,7 @@
                 <q-item-label caption>{{ item.price }}</q-item-label>
             </q-item-section>
         </q-item>
-    </div>
+
 </template>
 <script setup>
 import { useCollection } from '@/composables/collection';

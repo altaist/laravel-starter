@@ -1,14 +1,14 @@
 <template>
-    <div v-if="favorites.getFavorites().length>0">
+    <div v-if="favorites.getFavorites().length > 0">
         <div>
-        <ProductList :items="favorites.getFavorites()" view-mode="dense"/>
-    </div>
-    <div class="q-my-lg">
-        <div>
-            <q-btn label="Очистить все"  @click="clear()" />
+            <ProductList :items="favorites.getFavorites()" view-mode="dense" />
         </div>
+        <div class="q-my-lg">
+            <div>
+                <q-btn label="Очистить все" size="md" @click="clear()" />
+            </div>
 
-    </div>
+        </div>
 
     </div>
     <div v-else>
